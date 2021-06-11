@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 
 // GET
 router.get('/', (req, res) => {
-    QT = 'SELECT * FROM "feedback'
+    QT = 'SELECT * FROM "feedback"'
     pool.query(QT)
     .then(result => {
         res.send(result.rows)  
