@@ -1,6 +1,7 @@
 import { Route, HashRouter as Router, Link, useHistory } from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
+import { Typography } from '@material-ui/core';
 
 function Page0Start () {
 const history = useHistory()
@@ -12,9 +13,17 @@ const history = useHistory()
     }
 
     return (
-        <div>
+        <div className="display">
+            <div className="prompt-div">
+            <p className="prompt">
+                Daily Check-In
+            </p>
+
+            </div>
             
-            <button onClick={handleNext} className="prompt start-button">Start</button>
+            <div className="s-button-div">
+            <button onClick={handleNext} className="prompt button">Start</button>
+            </div>
         </div>
     )
 }

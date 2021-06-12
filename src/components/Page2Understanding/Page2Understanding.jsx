@@ -35,10 +35,10 @@ function Page2Understanding() {
   <input type="range" min="1" max="5" step="1" value={understanding}
         onChange={(evt) => setUnderstanding(evt.target.value)}
       ></input>
-      <div className="next-button-div">
-      <Button className="next-button" variant="outlined" color="primary" type="submit">
-      <ForwardRoundedIcon />
-    </Button>
+      <div className="button-div">
+      <button className="button" type="submit">
+      Next
+    </button>
 
       </div>
     </form>
