@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-app.use('/fbrouter', fbRouter);
+app.use('/fbRouter', fbRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {

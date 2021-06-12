@@ -3,10 +3,9 @@ const router = express.Router();
 
 const pool = require('../modules/pool');
 
-
 // GET
 router.get('/', (req, res) => {
-    QT = 'SELECT * FROM "feedback'
+    QT = 'SELECT * FROM "feedback"'
     pool.query(QT)
     .then(result => {
         res.send(result.rows)  
@@ -19,9 +18,11 @@ router.get('/', (req, res) => {
 
 // POST
 router.post('/', (req,res) => {
-// sanitize, use object model 
-QT = 'test' // <<<<-------------------------------Replace with reducer info 
-pool.query(QT, ['test']) // object here
+let feedback = req.body
+
+QT = 'INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4)'
+
+pool.query(QT, [feedback.feeling, feedback.understanding, feedback.supported, feedback.comments])
 .then(result => {
   res.sendStatus(201);
 })
