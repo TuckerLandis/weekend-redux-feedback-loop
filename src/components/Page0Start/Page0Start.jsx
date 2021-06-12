@@ -1,20 +1,20 @@
 import { Route, HashRouter as Router, Link, useHistory } from 'react-router-dom';
 
-function Page1Feeling () {
+function Page0Start () {
 const history = useHistory()
 
     const handleNext = () => {
         console.log('clicked next');
-        history.push('/understanding')
+        history.push('/feeling')
 
     }
 
     return (
         <div>
-            <p>feeling</p>
-            <button onClick={handleNext}>Next</button>
+            <p>Start</p>
+            <button onClick={handleNext}>Start</button>
         </div>
     )
 }
 
-export default Page1Feeling
+export default Page0Start
