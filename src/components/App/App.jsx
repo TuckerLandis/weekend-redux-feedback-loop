@@ -10,6 +10,7 @@ import Page2Understanding from "../Page2Understanding/Page2Understanding.jsx";
 import Page3Support from "../Page3Supported/Page3Supported";
 import Page4Comments from "../Page4Comments/Page4Comments";
 import Page5Review from "../Page5Review/Page5Review";
+import Page6Thanks from "../Page6Thanks/Page6Thanks";
 
 import "./App.css";
 
@@ -41,9 +42,9 @@ function App() {
           <Page5Review />
         </Route>
 
-        {/* <Route path="/thanks" exact>
+        <Route path="/thanks" exact>
           <Page6Thanks />
-        </Route> */}
+        </Route>
 
         <Route path="/">
           <Page0Start />
