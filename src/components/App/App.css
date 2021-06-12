@@ -5,6 +5,12 @@
 
 @import url(https://fonts.googleapis.com/css?family=Dosis:700);
 
+@font-face {
+  font-family: 'Dosis';
+  src:  url('https://fonts.googleapis.com/css?family=Dosis:700') format('woff2'),
+        
+}
+
 body {
   font-family: "Dosis", Helvetica, Arial, sans-serif; 
   background: #F0F2A6;
@@ -80,5 +86,26 @@ input[type="range"]::-webkit-slider-thumb {
 
 .prompt{
     font-size: 3em;
+    font-family: 'Dosis';
     
+}
+
+.text-field {
+  width: 18em;
+  padding-bottom: 2em;
+  font-family: 'Dosis';
+}
+
+.start-button{
+  border: 3px solid #1A1B25;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px 3px #AA6373 ;
+  background-color: #F0F2A6;
+}
+
+.start-button:hover{
+  border: 3px solid #1A1B25;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px 3px #AA6373 ;
+  background-color: #bcbe81;
 }
