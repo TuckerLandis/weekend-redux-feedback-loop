@@ -1,39 +1,62 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Route, HashRouter as Router, Link, useHistory, } from "react-router-dom";
+import {
+  Route,
+  HashRouter as Router,
+  Link,
+  useHistory,
+} from "react-router-dom";
+
+import {
+  createMuiTheme,
+  makeStyles,
+  ThemeProvider,
+} from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import ForwardRoundedIcon from "@material-ui/icons/ForwardRounded";
 
 function Page4Comments() {
   const history = useHistory();
 
-  const [comments, setComments] = useState('');
+  const [comments, setComments] = useState("");
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
     console.log("clicked next");
-    if (comments === '') {
-      alert("please enter a some comments");
-      return;
-    }
 
     dispatch({
       type: "ADD_COMMENTS",
       payload: comments,
     });
-    
-    setComments('')
+
+    setComments("");
     history.push("/review");
   };
 
   return (
     <div className="display">
-      <p>Any comments or questions?</p>
+      <p className="prompt">Any comments or questions?</p>
       <form onSubmit={handleSubmit}>
-        <input
+        <TextField
+          className="text-field "
+          id="standard-multiline-static"
+          label="Comments"
+          multiline
+          rows={4}
           type="text"
-          required
           onChange={(evt) => setComments(evt.target.value)}
-        ></input>
-        <button type="submit">Next</button>
+        />
+        <div className="next-button-div">
+          <Button
+            className="next-button"
+            variant="outlined"
+            color="primary"
+            type="submit"
+          >
+            <ForwardRoundedIcon />
+          </Button>
+        </div>
       </form>
     </div>
   );
