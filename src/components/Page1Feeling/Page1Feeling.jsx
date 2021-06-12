@@ -24,7 +24,7 @@ function Page1Feeling() {
   };
 
   return (
-    <div>
+    <div className="display">
       <p>How are you feeling?</p>
       <form onSubmit={handleSubmit}>
         <input
