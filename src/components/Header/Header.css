@@ -1,18 +1,21 @@
-/* .App-header {
-  background-color: #033076;
-  min-height: 70px;
-  padding: 20px;
-  color: white;
-  margin-bottom: 20px;
-} */
+.App-header {
+  background-color: #F79D5C;
+  color: #1b344d;
+  margin: auto ;
+  width: 70%;
+  border: 3px solid #1A1B25;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px 3px #AA6373 ;
+}
 
 .App-title {
-    font-size: 2em;
+    font-size: 4em;
   }
 .App-intro {
     font-size: large;
   }
   
 h4 {
+  font-size: 1.5em;
     font-style: italic;
   }

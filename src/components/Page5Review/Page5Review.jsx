@@ -2,6 +2,8 @@ import axios from 'axios'
 import feedbackLocal from '../../feedback.data.js'
 import { useHistory } from 'react-router-dom'
 
+import './Page5Review.css'
+
 
 function Page5Review() {
     const history = useHistory();
@@ -27,14 +29,17 @@ const handleSubmit = () => {
 
     return (
         <div className="display">
-            <ul>
-            <li>{feedbackLocal.feeling}</li>
-            <li>{feedbackLocal.understanding}</li>
-            <li>{feedbackLocal.support}</li>
-            <li>{feedbackLocal.comments}</li>
+              <p className="prompt">
+                Does this look right?
+            </p>
+            <ul className="review-list">
+            <li>You're feeling: <span className="review-sub-text">{feedbackLocal.feeling}</span></li>
+            <li>Understanding: <span className="review-sub-text">{feedbackLocal.understanding}</span></li>
+            <li>Supported: <span className="review-sub-text">{feedbackLocal.support}</span></li>
+            <li>Comments: <br/> <span className="review-sub-text-comments">{feedbackLocal.comments}</span></li>
             </ul>
 
-            <button onClick={handleSubmit}> Submit</button>
+            <button onClick={handleSubmit} className="prompt button">Submit</button>
         </div>
     )
     }

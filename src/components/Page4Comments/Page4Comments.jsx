@@ -47,15 +47,13 @@ function Page4Comments() {
           type="text"
           onChange={(evt) => setComments(evt.target.value)}
         />
-        <div className="next-button-div">
-          <Button
-            className="next-button"
-            variant="outlined"
-            color="primary"
+        <div className="button-div">
+          <button
+            className="button"
             type="submit"
           >
-            <ForwardRoundedIcon />
-          </Button>
+            Next
+          </button>
         </div>
       </form>
     </div>
