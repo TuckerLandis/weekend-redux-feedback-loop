@@ -34,7 +34,7 @@ const feedBackReducer = (state = [], action) => {
 
     break;
     case 'ADD_SUPPORTED':
-    feedbackLocal.support = action.payload
+    feedbackLocal.supported = action.payload
 
     break;
     case 'ADD_COMMENTS':

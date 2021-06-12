@@ -1,7 +1,7 @@
 let feedbackLocal = {
     feeling: 0,
-    understanding: -1,
-    supported: -1,
+    understanding: 0,
+    supported: 0,
     comments: '',
   }
 
