@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Route, HashRouter as Router, Link, useHistory, } from "react-router-dom";
 
+import Page1FeelingCard from './Page1FeelingCard'
+
 function Page1Feeling() {
   const history = useHistory();
 
@@ -24,6 +26,7 @@ function Page1Feeling() {
   };
 
   return (
+
     <div className="display">
       <p>How are you feeling?</p>
       <form onSubmit={handleSubmit}>
@@ -34,8 +37,12 @@ function Page1Feeling() {
         ></input>
         <button type="submit">Next</button>
       </form>
+
+     
     </div>
+
   );
+
 }
 
 export default Page1Feeling;

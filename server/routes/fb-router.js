@@ -3,7 +3,6 @@ const router = express.Router();
 
 const pool = require('../modules/pool');
 
-
 // GET
 router.get('/', (req, res) => {
     QT = 'SELECT * FROM "feedback"'
@@ -19,7 +18,6 @@ router.get('/', (req, res) => {
 
 // POST
 router.post('/', (req,res) => {
-// sanitize, use object model 
 let feedback = req.body
 
 QT = 'INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4)'

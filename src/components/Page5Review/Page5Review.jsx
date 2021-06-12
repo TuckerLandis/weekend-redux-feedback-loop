@@ -7,7 +7,6 @@ function Page5Review() {
     const history = useHistory();
 const handleSubmit = () => {
     
-
     // swal here
 
     axios.post('/fbRouter', feedbackLocal)
@@ -24,9 +23,7 @@ const handleSubmit = () => {
     .catch(error => {
         console.log('error in post', error);
     })
-
 }
-
 
     return (
         <div className="display">
@@ -40,7 +37,6 @@ const handleSubmit = () => {
             <button onClick={handleSubmit}> Submit</button>
         </div>
     )
-    
     }
     
     export default Page5Review
