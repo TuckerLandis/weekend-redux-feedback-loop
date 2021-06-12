@@ -1,8 +1,12 @@
 import axios from 'axios'
 import feedbackLocal from '../../feedback.data.js'
+import { useHistory } from 'react-router-dom'
+
 
 function Page5Review() {
+    const history = useHistory();
 const handleSubmit = () => {
+    
 
     // swal here
 
@@ -13,6 +17,8 @@ const handleSubmit = () => {
         feedbackLocal.understanding = -1
         feedbackLocal.support = -1
         feedbackLocal.comments = ''
+
+        history.push('/')
 
     })
     .catch(error => {
