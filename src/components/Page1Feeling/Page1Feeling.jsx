@@ -2,18 +2,21 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Route, HashRouter as Router, Link, useHistory, } from "react-router-dom";
 
-import Page1FeelingCard from './Page1FeelingCard'
+import Button from '@material-ui/core/Button'
+import ForwardRoundedIcon from '@material-ui/icons/ForwardRounded';
+import './Page1Feeling.css'
 
 function Page1Feeling() {
   const history = useHistory();
-
-  const [feeling, setFeeling] = useState(-1);
   const dispatch = useDispatch();
+  const [feeling, setFeeling] = useState('1  -  5');
+
+//  
 
   const handleSubmit = () => {
     console.log("clicked next");
-    if (feeling === -1) {
-      alert("please enter a number");
+    if (feeling === '1  -  5') {
+      alert("please select a number 1-5");
       return;
     }
 
@@ -21,21 +24,27 @@ function Page1Feeling() {
       type: "ADD_FEELING",
       payload: Number(feeling),
     });
-    setFeeling(-1);
+    setFeeling('1  -  5');
     history.push("/understanding");
   };
+
+
 
   return (
 
     <div className="display">
-      <p>How are you feeling?</p>
+      <p className="prompt">How are you feeling?</p>
       <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          required
+      <div className="value">{feeling}</div>
+    <input type="range" min="1" max="5" step="1" value={feeling}
           onChange={(evt) => setFeeling(evt.target.value)}
         ></input>
-        <button type="submit">Next</button>
+        <div className="next-button-div">
+        <Button className="next-button" variant="outlined" color="primary" type="submit">
+        <ForwardRoundedIcon />
+      </Button>
+
+        </div>
       </form>
 
      
@@ -46,3 +55,28 @@ function Page1Feeling() {
 }
 
 export default Page1Feeling;
+
+
+// const renderSliderDisplay = (feeling) => {
+    //     let sliderDisplay = 'please select a number 1-5'
+    //     if (feeling === 0) {
+    //         return sliderDisplay
+    //     } else if (feeling > 0) {
+    //         sliderDisplay = feeling
+    //         return sliderDisplay
+    //     }
+    //   }
+
+
+
+//   let sliderDisplay = 'please select'
+//   function ifZero (feeling) {
+//     let className = 'value'
+//     if (feeling = 0) {
+//         className = "init-value"
+//     } else {
+//         className = 'value'
+//         sliderDisplay = feeling
+//     }
+//     return className
+//   }
