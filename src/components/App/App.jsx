@@ -3,6 +3,8 @@ import axios from "axios";
 
 import { Route, HashRouter as Router, Switch } from "react-router-dom";
 
+import { useState } from "react";
+
 //local import
 import Header from "../Header/Header";
 import Page0Start from "../Page0Start/Page0Start";
@@ -12,6 +14,9 @@ import Page2Understanding from "../Page2Understanding/Page2Understanding.jsx";
 import "./App.css";
 
 function App() {
+
+
+
   return (
     <Router>
       <div className="App">

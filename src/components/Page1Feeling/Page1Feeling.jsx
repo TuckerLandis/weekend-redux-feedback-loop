@@ -1,20 +1,41 @@
-import { Route, HashRouter as Router, Link, useHistory } from 'react-router-dom';
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Route, HashRouter as Router, Link, useHistory, } from "react-router-dom";
 
-function Page1Feeling () {
-const history = useHistory()
+function Page1Feeling() {
+  const history = useHistory();
 
-    const handleNext = () => {
-        console.log('clicked next');
-        history.push('/understanding')
+  const [feeling, setFeeling] = useState(-1);
+  const dispatch = useDispatch();
 
+  const handleSubmit = () => {
+    console.log("clicked next");
+    if (feeling === -1) {
+      alert("please enter a number");
+      return;
     }
 
-    return (
-        <div>
-            <p>feeling</p>
-            <button onClick={handleNext}>Next</button>
-        </div>
-    )
+    dispatch({
+      type: "ADD_FEELING",
+      payload: Number(feeling),
+    });
+    setFeeling(-1);
+    history.push("/understanding");
+  };
+
+  return (
+    <div>
+      <p>How are you feeling?</p>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="number"
+          required
+          onChange={(evt) => setFeeling(evt.target.value)}
+        ></input>
+        <button type="submit">Next</button>
+      </form>
+    </div>
+  );
 }
 
-export default Page1Feeling
+export default Page1Feeling;

@@ -1,6 +1,6 @@
 
 
-function Page2Understanding () {
+function Page2Understanding ({feedBackLocal, setFeedBackLocal}) {
 
 
     return (
