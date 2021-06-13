@@ -5,8 +5,8 @@ const pool = require('../modules/pool');
 
 // GET
 router.get('/', (req, res) => {
-    QT = 'SELECT * FROM "feedback"'
-    pool.query(QT)
+    QT = 'SELECT * FROM "feedback" ORDER BY "date" DESC '
+    pool.query(QT, [])
     .then(result => {
         res.send(result.rows)  
     })
@@ -30,6 +30,24 @@ pool.query(QT, [feedback.feeling, feedback.understanding, feedback.supported, fe
   console.log(`Error POSTing: `, error);
   res.sendStatus(500);
 })
+})
+
+// PUT 
+router.put('/:id', (req, res) => {
+  console.log('got to put', req.params.id);
+  
+  QT = 'UPDATE "feedback" SET flagged = TRUE WHERE id = $1; ';
+  pool.query(QT, [req.params.id])
+  .then(result => {
+    res.sendStatus(200)
+  })
+  .catch(error => {
+    console.log('error in put', error);
+    
+    res.sendStatus(500)
+  })
+
+
 })
 
 module.exports = router;

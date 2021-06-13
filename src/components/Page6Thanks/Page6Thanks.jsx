@@ -8,7 +8,7 @@ function Page6Thanks() {
     }
 
     const handleHistory = () => {
-
+        history.push('/admin')
     }
 
     return (
@@ -26,3 +26,7 @@ function Page6Thanks() {
     }
     
     export default Page6Thanks
+
+
+    //need axios put and axios delete here
+    

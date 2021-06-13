@@ -94,7 +94,7 @@ input[type="range"]::-webkit-slider-thumb {
   
 }
 
-button:hover{
+.button:hover{
   border: 3px solid #1A1B25;
   border-radius: 25px;
   box-shadow: 3px 3px 3px 3px #AA6373 ;
@@ -129,4 +129,8 @@ button:hover{
   font-size: 2em;
   width: 300px;
   transform: translateY(4px);
+}
+
+table {
+  width: 100%
 }

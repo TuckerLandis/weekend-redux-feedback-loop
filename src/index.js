@@ -11,20 +11,19 @@ import {
 import logger from 'redux-logger';
 
 import localFeedback from './reducers/localFeedback';
+import dbFeedback from './reducers/dbFeedback';
 
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
 
-/// Reducers
-
-
 /// Store
 
 const store = createStore(
   combineReducers({
-    localFeedback
+    localFeedback,
+    dbFeedback
   }),
   applyMiddleware(logger)
 );
