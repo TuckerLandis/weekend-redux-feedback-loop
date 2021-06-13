@@ -65,11 +65,9 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 25px;
     box-shadow: 3px 3px 3px 3px #AA6373 ;
     padding: 1em;
-    
     margin: auto;
     margin-top: 4em;
-    width: 60%;
-
+    width: 80%;
     display: flexbox;
     align-items: center;
   
