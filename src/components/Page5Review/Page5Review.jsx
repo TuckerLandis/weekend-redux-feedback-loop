@@ -11,40 +11,39 @@ import { useState } from "react";
 
 function Page5Review() {
   const history = useHistory();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [isEdit, setIsEdit] = useState(false);
 
   const [feeling, setFeeling] = useState(feedbackLocal.feeling);
-  const [understanding, setUnderstanding] = useState(feedbackLocal.understanding);
+  const [understanding, setUnderstanding] = useState(
+    feedbackLocal.understanding
+  );
   const [supported, setSupported] = useState(feedbackLocal.supported);
   const [comments, setComments] = useState(feedbackLocal.comments);
 
+  const handleDone = () => {
+    dispatch({
+      type: "ADD_FEELING",
+      payload: Number(feeling),
+    });
 
-    const handleDone = () => {
-        dispatch({
-            type: "ADD_FEELING",
-            payload: Number(feeling),
-          });
+    dispatch({
+      type: "ADD_UNDERSTANDING",
+      payload: Number(understanding),
+    });
 
-        dispatch({
-            type: "ADD_UNDERSTANDING",
-            payload: Number(understanding),
-          });
-        
-        dispatch({
-            type: "ADD_SUPPORTED",
-            payload: Number(supported),
-          });
+    dispatch({
+      type: "ADD_SUPPORTED",
+      payload: Number(supported),
+    });
 
+    dispatch({
+      type: "ADD_COMMENTS",
+      payload: comments,
+    });
 
-        dispatch({
-            type: "ADD_COMMENTS",
-            payload: comments,
-          });
-
-          flipEdit()
-    }
-
+    setIsEdit(false)
+  };
 
   const handleSubmit = () => {
     // swal here
@@ -65,16 +64,13 @@ function Page5Review() {
       });
   };
 
-  const flipEdit = () => {
-    setIsEdit(!isEdit);
-  };
 
   const isEditRender = (isEdit) => {
-    if (isEdit) {
+    if (!isEdit) {
       return (
         <div className="display">
           <p className="prompt">Does this look right?</p>
-          <button onClick={flipEdit} className="prompt button">
+          <button onClick={() => setIsEdit(true)} className="prompt button">
             Edit
           </button>
           <div className="review-list">
@@ -117,41 +113,45 @@ function Page5Review() {
           </button>
           <div className="review-list"></div>
           <form>
+            <div className="value">{feeling}</div>
+            <input
+              type="range"
+              min="1"
+              max="5"
+              step="1"
+              value={feeling}
+              onChange={(evt) => setFeeling(evt.target.value)}
+            ></input>
 
+            <div className="value">{understanding}</div>
+            <input
+              type="range"
+              min="1"
+              max="5"
+              step="1"
+              value={understanding}
+              onChange={(evt) => setUnderstanding(evt.target.value)}
+            ></input>
 
-          <div className="value">{feeling}</div>
-          <input
-            type="range"
-            min="1"
-            max="5"
-            step="1"
-            value={feeling}
-            onChange={(evt) => setFeeling(evt.target.value)}
-          ></input>
+            <div className="value">{supported}</div>
+            <input
+              type="range"
+              min="1"
+              max="5"
+              step="1"
+              value={supported}
+              onChange={(evt) => setSupported(evt.target.value)}
+            ></input>
 
-<div className="value">{understanding}</div>
-  <input type="range" min="1" max="5" step="1" value={understanding}
-        onChange={(evt) => setUnderstanding(evt.target.value)}
-      ></input>
-
-<div className="value">{supported}</div>
-  <input type="range" min="1" max="5" step="1" value={supported}
-        onChange={(evt) => setSupported(evt.target.value)}
-      ></input>
-
-<TextField
-          className="text-field "
-          id="standard-multiline-static"
-          label="Comments"
-          multiline
-          rows={4}
-          type="text"
-          onChange={(evt) => setComments(evt.target.value)}
-        />
-
-            
-
-
+            <TextField
+              className="text-field "
+              id="standard-multiline-static"
+              label="Comments"
+              multiline
+              rows={4}
+              type="text"
+              onChange={(evt) => setComments(evt.target.value)}
+            />
           </form>
         </div>
       );
