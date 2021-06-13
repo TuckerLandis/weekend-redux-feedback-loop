@@ -10,49 +10,21 @@ import {
 } from 'react-redux';
 import logger from 'redux-logger';
 
+import localFeedback from './reducers/localFeedback';
 
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
-import feedbackLocal from './feedback.data'
 
 /// Reducers
-const feedBackReducer = (state = [], action) => {
 
-  if (action.type === 'ADD_FEELING') {
-
-  }
-
-  switch (action.type) {
-    case 'ADD_FEELING':
-      feedbackLocal.feeling = action.payload
-
-    break;
-    case 'ADD_UNDERSTANDING':
-    feedbackLocal.understanding = action.payload
-
-    break;
-    case 'ADD_SUPPORTED':
-    feedbackLocal.supported = action.payload
-
-    break;
-    case 'ADD_COMMENTS':
-    feedbackLocal.comments = action.payload
-  
-    break;
-    case 'SUBMIT_FEEDBACK':
-    /// axios post -- but not here?
-    break;
-  }
-  return state
-}
 
 /// Store
 
-const reduxStore = createStore(
+const store = createStore(
   combineReducers({
-    feedBackReducer
+    localFeedback
   }),
   applyMiddleware(logger)
 );
@@ -60,7 +32,7 @@ const reduxStore = createStore(
 
 // Render
  ReactDOM.render(
-<Provider store={reduxStore}>
+<Provider store={store}>
 <App />
 </Provider>
 , document.getElementById('root'));

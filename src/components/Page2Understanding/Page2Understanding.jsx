@@ -2,10 +2,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Route, HashRouter as Router, Link, useHistory, } from "react-router-dom";
 
-
-import Button from '@material-ui/core/Button'
-import ForwardRoundedIcon from '@material-ui/icons/ForwardRounded';
-
 function Page2Understanding() {
   const history = useHistory();
 

@@ -1,25 +1,27 @@
 import axios from "axios";
-import feedbackLocal from "../../feedback.data.js";
+// import feedbackLocal from "../../feedback.data.js";
 import { useHistory } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 
 import "./Page5Review.css";
-import { useState } from "react";
+
 
 function Page5Review() {
   const history = useHistory();
   const dispatch = useDispatch();
   const [isEdit, setIsEdit] = useState(false);
 
-  const [feeling, setFeeling] = useState(feedbackLocal.feeling);
+  const localFeedback = useSelector((state) => state.localFeedback);
+
+  const [feeling, setFeeling] = useState(localFeedback.feeling);
   const [understanding, setUnderstanding] = useState(
-    feedbackLocal.understanding
+    localFeedback.understanding
   );
-  const [supported, setSupported] = useState(feedbackLocal.supported);
-  const [comments, setComments] = useState(feedbackLocal.comments);
+  const [supported, setSupported] = useState(localFeedback.supported);
+  const [comments, setComments] = useState(localFeedback.comments);
 
   const handleDone = () => {
     dispatch({
@@ -42,20 +44,19 @@ function Page5Review() {
       payload: comments,
     });
 
-    setIsEdit(false)
+    setIsEdit(false);
   };
 
   const handleSubmit = () => {
     // swal here
 
     axios
-      .post("/fbRouter", feedbackLocal)
+      .post("/fbRouter", localFeedback)
       .then((response) => {
         console.log(response);
-        feedbackLocal.feeling = 0;
-        feedbackLocal.understanding = 0;
-        feedbackLocal.supported = 0;
-        feedbackLocal.comments = "";
+        dispatch({
+          type: "SUBMIT_FEEDBACK",
+        });
 
         history.push("/thanks");
       })
@@ -63,7 +64,6 @@ function Page5Review() {
         console.log("error in post", error);
       });
   };
-
 
   const isEditRender = (isEdit) => {
     if (!isEdit) {
@@ -77,25 +77,21 @@ function Page5Review() {
             <p>
               You're feeling:
               <br />
-              <span className="review-sub-text">{feedbackLocal.feeling}</span>
+              <span className="review-sub-text">{feeling}</span>
             </p>
             <p>
               Understanding:
               <br />
-              <span className="review-sub-text">
-                {feedbackLocal.understanding}
-              </span>
+              <span className="review-sub-text">{understanding}</span>
             </p>
             <p>
               Supported:
               <br />
-              <span className="review-sub-text">{feedbackLocal.supported}</span>
+              <span className="review-sub-text">{supported}</span>
             </p>
             <p>
               Comments: <br />
-              <span className="review-sub-text-comments">
-                {feedbackLocal.comments}
-              </span>
+              <span className="review-sub-text-comments">{comments}</span>
             </p>
           </div>
 
@@ -147,6 +143,7 @@ function Page5Review() {
               className="text-field "
               id="standard-multiline-static"
               label="Comments"
+              value={comments}
               multiline
               rows={4}
               type="text"
@@ -162,30 +159,3 @@ function Page5Review() {
 }
 
 export default Page5Review;
-
-{
-  /* <p>
-You're feeling:
-<br />
-<span className="review-sub-text">{feedbackLocal.feeling}</span>
-</p>
-<p>
-Understanding:
-<br />
-<span className="review-sub-text">
-  {feedbackLocal.understanding}
-</span>
-</p>
-<p>
-Supported:
-<br />
-<span className="review-sub-text">{feedbackLocal.supported}</span>
-</p>
-<p>
-Comments: <br />
-<span className="review-sub-text-comments">
-  {feedbackLocal.comments}
-</span>
-</p>
-</div> */
-}
