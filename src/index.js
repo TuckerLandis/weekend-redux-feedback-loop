@@ -17,9 +17,6 @@ import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
-
-/// Store
-
 const store = createStore(
   combineReducers({
     localFeedback,
@@ -28,8 +25,6 @@ const store = createStore(
   applyMiddleware(logger)
 );
 
-
-// Render
  ReactDOM.render(
 <Provider store={store}>
 <App />

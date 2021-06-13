@@ -8,7 +8,6 @@ import TextField from "@material-ui/core/TextField";
 
 import "./Page5Review.css";
 
-
 function Page5Review() {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -23,6 +22,7 @@ function Page5Review() {
   const [supported, setSupported] = useState(localFeedback.supported);
   const [comments, setComments] = useState(localFeedback.comments);
 
+  // When done editing, send a full dispatch to local feedback reducer
   const handleDone = () => {
     dispatch({
       type: "ADD_FEELING",
@@ -43,13 +43,12 @@ function Page5Review() {
       type: "ADD_COMMENTS",
       payload: comments,
     });
-
     setIsEdit(false);
   };
 
+  // upon actual submit, send an axios post, 
+  // data = local feedback reducer, reset local feedback reducer, navigate to thanks
   const handleSubmit = () => {
-    // swal here
-
     axios
       .post("/fbRouter", localFeedback)
       .then((response) => {
@@ -57,7 +56,6 @@ function Page5Review() {
         dispatch({
           type: "SUBMIT_FEEDBACK",
         });
-
         history.push("/thanks");
       })
       .catch((error) => {
@@ -65,6 +63,7 @@ function Page5Review() {
       });
   };
 
+  // edit mode flow control
   const isEditRender = (isEdit) => {
     if (!isEdit) {
       return (
@@ -100,11 +99,12 @@ function Page5Review() {
           </button>
         </div>
       );
-    } else {
+      // ---------------------  [ The above is rendered if edit mode is false, the below if true ]
+    } else {      
       return (
         <div className="display">
           <p className="review-prompt">Editing...</p>
-          
+
           <div className="review-list"></div>
           <form>
             <div className="value-review">{feeling}</div>
@@ -117,7 +117,6 @@ function Page5Review() {
               value={feeling}
               onChange={(evt) => setFeeling(evt.target.value)}
             ></input>
-
             <div className="value-review">{understanding}</div>
             <p>Understanding</p>
             <input
@@ -128,7 +127,6 @@ function Page5Review() {
               value={understanding}
               onChange={(evt) => setUnderstanding(evt.target.value)}
             ></input>
-
             <div className="value-review">{supported}</div>
             Supported
             <input
@@ -139,7 +137,6 @@ function Page5Review() {
               value={supported}
               onChange={(evt) => setSupported(evt.target.value)}
             ></input>
-
             <TextField
               className="text-field "
               id="standard-multiline-static"
@@ -152,14 +149,14 @@ function Page5Review() {
             />
             <p></p>
             <button onClick={handleDone} className="prompt button">
-            Done
-          </button>
+              Done
+            </button>
           </form>
         </div>
       );
     }
   };
-
+// actual render return
   return isEditRender(isEdit);
 }
 

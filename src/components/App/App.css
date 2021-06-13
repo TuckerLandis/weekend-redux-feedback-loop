@@ -8,7 +8,10 @@
   font-family: 'Dosis';
   src:  url('https://fonts.googleapis.com/css?family=Dosis:700') format('woff2'),    
 }
-
+th {
+  padding-top :  1em;
+  text-decoration: underline;
+}
 body {
   font-family: "Dosis", Helvetica, Arial, sans-serif; 
   background: #F0F2A6;

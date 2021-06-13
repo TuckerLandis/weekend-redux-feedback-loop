@@ -26,5 +26,5 @@ VALUES (2, 4, 5, 'Doing Great!'),
 VALUES (4, 3, 5, 'Doing Good!'),
 VALUES (2, 4, 5, 'Doing Alright'),
 VALUES (4, 4, 5, 'Doing Fine'),
-VALUES (5, 5, 5, `I'm a real coder!`),
+VALUES (5, 5, 5, `I'm a real coder!`);
 

@@ -7,16 +7,12 @@ import {
   useHistory,
 } from "react-router-dom";
 
-import Button from "@material-ui/core/Button";
-import ForwardRoundedIcon from "@material-ui/icons/ForwardRounded";
 import "./Page1Feeling.css";
 
 function Page1Feeling() {
   const history = useHistory();
   const dispatch = useDispatch();
   const [feeling, setFeeling] = useState("1  -  5");
-
-  //
 
   const handleSubmit = () => {
     console.log("clicked next");
@@ -39,7 +35,7 @@ function Page1Feeling() {
         <p className="prompt">How are you feeling?</p>
       </div>
 
-      <div className="form-div"> 
+      <div className="form-div">
         <form onSubmit={handleSubmit}>
           <div className="value">{feeling}</div>
           <input
@@ -52,11 +48,7 @@ function Page1Feeling() {
           ></input>
 
           <div className="button-div">
-            <button
-              className="button"
-              
-              type="submit"
-            >
+            <button className="button" type="submit">
               Next
             </button>
           </div>

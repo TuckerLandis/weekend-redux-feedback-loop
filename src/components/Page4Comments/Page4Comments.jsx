@@ -7,14 +7,7 @@ import {
   useHistory,
 } from "react-router-dom";
 
-import {
-  createMuiTheme,
-  makeStyles,
-  ThemeProvider,
-} from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import ForwardRoundedIcon from "@material-ui/icons/ForwardRounded";
 
 function Page4Comments() {
   const history = useHistory();
@@ -48,10 +41,7 @@ function Page4Comments() {
           onChange={(evt) => setComments(evt.target.value)}
         />
         <div className="button-div">
-          <button
-            className="button"
-            type="submit"
-          >
+          <button className="button" type="submit">
             Next
           </button>
         </div>

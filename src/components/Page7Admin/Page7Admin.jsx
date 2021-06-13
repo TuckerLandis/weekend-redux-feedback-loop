@@ -3,13 +3,20 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import ReviewItem from "./ReviewItem";
 
 function Page7Admin() {
   const dbFeedback = useSelector((state) => state.dbFeedback);
+  const history = useHistory();
+
 
   const dispatch = useDispatch();
+
+  const handleHome = () => {
+    history.push("/");
+  };
 
   const getDbFeedback =() => {
     axios
@@ -32,11 +39,15 @@ function Page7Admin() {
 
   return (
     <div className="display">
+
+      <button onClick={handleHome} className="prompt button">
+        Home
+      </button>
       <table>
         <tr>
-          <th>Feeling</th>
-          <th>Understanding</th>
-          <th>Supported</th>
+          <th>F</th>
+          <th>U</th>
+          <th>S</th>
           <th>Comments</th>
           <th>Delete</th>
           <th>Flag 🚩</th>
