@@ -16,14 +16,24 @@ body {
   padding-top: 40px;
   text-shadow: white 1px 1px 1px;
 }
-
 .value {
   text-align: center;
   font-weight: bold;
   font-size: 3em;
   width: 300px; 
   height: 100px;
-  line-height: 60px;
+  line-height: 40px;
+  margin: 10px auto;
+  letter-spacing: -.07em;
+  text-shadow: white 2px 2px 2px;
+}
+
+.value-review {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3em;
+  width: 300px; 
+ 
   margin: 10px auto;
   letter-spacing: -.07em;
   text-shadow: white 2px 2px 2px;
@@ -74,6 +84,11 @@ input[type="range"]::-webkit-slider-thumb {
 .prompt{
     font-size: 2em;
     font-family: 'Dosis';
+}
+
+.prompt-review{
+  font-size: 1.5em;
+  font-family: 'Dosis';
 }
 
 .text-field {

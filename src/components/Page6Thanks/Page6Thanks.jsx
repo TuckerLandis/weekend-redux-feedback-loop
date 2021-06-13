@@ -19,7 +19,7 @@ function Page6Thanks() {
         
 
             <button onClick={handleHistory} className="prompt button">See History</button>
-
+            <p></p>
             <button onClick={handleNext} className="prompt button">Restart</button>
         </div>
     )

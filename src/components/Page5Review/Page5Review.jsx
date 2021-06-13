@@ -69,7 +69,7 @@ function Page5Review() {
     if (!isEdit) {
       return (
         <div className="display">
-          <p className="prompt">Does this look right?</p>
+          <p className="prompt-review">Does this look right?</p>
           <button onClick={() => setIsEdit(true)} className="prompt button">
             Edit
           </button>
@@ -77,21 +77,21 @@ function Page5Review() {
             <p>
               You're feeling:
               <br />
-              <span className="review-sub-text">{feeling}</span>
+              <p className="review-sub-text">{feeling}</p>
             </p>
             <p>
               Understanding:
               <br />
-              <span className="review-sub-text">{understanding}</span>
+              <p className="review-sub-text">{understanding}</p>
             </p>
             <p>
               Supported:
               <br />
-              <span className="review-sub-text">{supported}</span>
+              <p className="review-sub-text">{supported}</p>
             </p>
             <p>
               Comments: <br />
-              <span className="review-sub-text-comments">{comments}</span>
+              <p className="review-sub-text-comments">{comments}</p>
             </p>
           </div>
 
@@ -103,13 +103,12 @@ function Page5Review() {
     } else {
       return (
         <div className="display">
-          <p className="prompt">Editing...</p>
-          <button onClick={handleDone} className="prompt button">
-            Done
-          </button>
+          <p className="review-prompt">Editing...</p>
+          
           <div className="review-list"></div>
           <form>
-            <div className="value">{feeling}</div>
+            <div className="value-review">{feeling}</div>
+            <p>Feeling</p>
             <input
               type="range"
               min="1"
@@ -119,7 +118,8 @@ function Page5Review() {
               onChange={(evt) => setFeeling(evt.target.value)}
             ></input>
 
-            <div className="value">{understanding}</div>
+            <div className="value-review">{understanding}</div>
+            <p>Understanding</p>
             <input
               type="range"
               min="1"
@@ -129,7 +129,8 @@ function Page5Review() {
               onChange={(evt) => setUnderstanding(evt.target.value)}
             ></input>
 
-            <div className="value">{supported}</div>
+            <div className="value-review">{supported}</div>
+            Supported
             <input
               type="range"
               min="1"
@@ -149,6 +150,10 @@ function Page5Review() {
               type="text"
               onChange={(evt) => setComments(evt.target.value)}
             />
+            <p></p>
+            <button onClick={handleDone} className="prompt button">
+            Done
+          </button>
           </form>
         </div>
       );
