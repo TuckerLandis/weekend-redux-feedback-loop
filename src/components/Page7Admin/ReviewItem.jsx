@@ -14,6 +14,15 @@ function ReviewItem ({item, getDbFeedback}) {
         })
     }
 
+    const deleteItem = () => {
+        console.log(item);
+        axios.delete(`/fbRouter/${ID}`)
+        .then(response => {
+            getDbFeedback()
+        }).catch(error => {
+            console.log('error in DEL', error);
+        })
+    }
 
 
 
@@ -32,11 +41,11 @@ function ReviewItem ({item, getDbFeedback}) {
                 {item.comments}
             </td>
             <td>
-                <button>Delete</button>
+                <button onClick={deleteItem}>Delete</button>
             </td>
             <td>
-                <button onClick={flagItem}> flag </button>
-                {item.flagged ? '🚩' : ''}
+                
+                {item.flagged ? '🚩' : <button onClick={flagItem}> flag </button>}
             </td>
 
 
