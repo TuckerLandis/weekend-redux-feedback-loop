@@ -67,25 +67,3 @@ function Page1Feeling() {
 }
 
 export default Page1Feeling;
-
-// const renderSliderDisplay = (feeling) => {
-//     let sliderDisplay = 'please select a number 1-5'
-//     if (feeling === 0) {
-//         return sliderDisplay
-//     } else if (feeling > 0) {
-//         sliderDisplay = feeling
-//         return sliderDisplay
-//     }
-//   }
-
-//   let sliderDisplay = 'please select'
-//   function ifZero (feeling) {
-//     let className = 'value'
-//     if (feeling = 0) {
-//         className = "init-value"
-//     } else {
-//         className = 'value'
-//         sliderDisplay = feeling
-//     }
-//     return className
-//   }

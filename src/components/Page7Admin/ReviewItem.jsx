@@ -4,6 +4,7 @@ function ReviewItem ({item, getDbFeedback}) {
 
     let ID = item.id
 
+
     const flagItem = () => {
         console.log(item);
         axios.put(`/fbRouter/${ID}`)
@@ -13,6 +14,32 @@ function ReviewItem ({item, getDbFeedback}) {
             console.log('error in PUT', error);
         })
     }
+
+    const unFlagItem = () => {
+        console.log(item);
+        axios.put(`/fbRouter/un/${ID}`)
+        .then(response => {
+            getDbFeedback()
+        }).catch(error => {
+            console.log('error in PUT', error);
+        })
+    }
+
+const handleFlag = () => {
+
+
+    console.log('handling flag');
+
+    if (!item.flagged) {
+        flagItem()
+    } else if (item.flagged) {
+        unFlagItem()
+    }
+
+}
+
+
+    
 
     const deleteItem = () => {
         console.log(item);
@@ -41,11 +68,12 @@ function ReviewItem ({item, getDbFeedback}) {
                 {item.comments}
             </td>
             <td>
-                <button onClick={deleteItem}>Delete</button>
+                <button className="button-review" onClick={deleteItem}>Delete</button>
             </td>
             <td>
                 
-                {item.flagged ? '🚩' : <button onClick={flagItem}> flag </button>}
+                {item.flagged ? <button className="button-review" onClick={handleFlag}> 🚩 </button> :
+                 <button className="button-review" onClick={handleFlag}> flag </button>}
             </td>
 
 

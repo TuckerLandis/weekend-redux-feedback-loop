@@ -1,15 +1,12 @@
 .App {
   text-align: center;
-
-  
 }
 
 @import url(https://fonts.googleapis.com/css?family=Dosis:700);
 
 @font-face {
   font-family: 'Dosis';
-  src:  url('https://fonts.googleapis.com/css?family=Dosis:700') format('woff2'),
-        
+  src:  url('https://fonts.googleapis.com/css?family=Dosis:700') format('woff2'),    
 }
 
 body {
@@ -23,14 +20,15 @@ body {
 .value {
   text-align: center;
   font-weight: bold;
-  font-size: 5em;
+  font-size: 3em;
   width: 300px; 
   height: 100px;
   line-height: 60px;
-  margin: 40px auto;
+  margin: 10px auto;
   letter-spacing: -.07em;
   text-shadow: white 2px 2px 2px;
 }
+
 input[type="range"] {
   display: block;
   -webkit-appearance: none;
@@ -41,6 +39,7 @@ input[type="range"] {
   margin: 0 auto;
   outline: 0;
 }
+
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   background-color: #822E81;
@@ -59,22 +58,21 @@ input[type="range"]::-webkit-slider-thumb {
     transform: scale(1.6);
   }
 
-
 .display {
     border: 3px solid #1A1B25;
     border-radius: 25px;
     box-shadow: 3px 3px 3px 3px #AA6373 ;
     padding: 1em;
     margin: auto;
-    margin-top: 4em;
+    margin-top: 1em;
     width: 80%;
     display: flexbox;
     align-items: center;
-  
+    flex-direction: column;
 }
 
 .prompt{
-    font-size: 3em;
+    font-size: 2em;
     font-family: 'Dosis';
 }
 
@@ -86,7 +84,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .button-div{
   padding-bottom: 2em;
-  margin-top: 5em;
+  margin-top: 2em;
   
 }
 .s-button-div{
@@ -98,19 +96,20 @@ input[type="range"]::-webkit-slider-thumb {
   border: 3px solid #1A1B25;
   border-radius: 25px;
   box-shadow: 3px 3px 3px 3px #AA6373 ;
-  background-color: #f6f99e;
+  background-color: #cd7e46;
   padding: 0.5em;
   font-family: "Dosis", Helvetica, Arial, sans-serif; 
   width: 300px;
   font-size: 2em;
   color: #1b344d;
+  cursor: pointer;
 }
 
 .button {
   border: 3px solid #1A1B25;
   border-radius: 25px;
   box-shadow: 3px 3px 3px 3px #AA6373 ;
-  background-color: #F0F2A6;
+  background-color: #F79D5C;
   color: #1b344d;
   padding: 0.5em;
   font-family: "Dosis", Helvetica, Arial, sans-serif; 
@@ -133,4 +132,39 @@ input[type="range"]::-webkit-slider-thumb {
 
 table {
   width: 100%
+}
+
+.button-review {
+  border: 3px solid #1A1B25;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px 3px #AA6373 ;
+  background-color: #F0F2A6;
+  color: #1b344d;
+  padding: 0.5em;
+  font-family: "Dosis", Helvetica, Arial, sans-serif; 
+  font-size: 1em;
+}
+
+.button-review:active {
+  border: 3px solid #1A1B25;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px 3px #AA6373 ;
+  background-color: #F0F2A6;
+  color: #1b344d;
+  padding: 0.5em;
+  font-family: "Dosis", Helvetica, Arial, sans-serif; 
+  font-size: 1em;
+  transform: translateY(4px);
+}
+
+.button-review:hover {
+  border: 3px solid #1A1B25;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px 3px #AA6373 ;
+  background-color: #F0F2A6;
+  color: #1b344d;
+  padding: 0.5em;
+  font-family: "Dosis", Helvetica, Arial, sans-serif; 
+  font-size: 1em;
+  cursor: pointer;
 }
